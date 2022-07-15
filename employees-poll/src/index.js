@@ -12,7 +12,7 @@ const store = createStore(reducer, middleware);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <Provider store={store}>
+  <Provider store={store} dispatch={store.dispatch}>
     <Router>
       <App />
     </Router>
