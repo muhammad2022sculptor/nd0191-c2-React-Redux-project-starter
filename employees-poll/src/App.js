@@ -4,6 +4,8 @@ import { Routes, Route } from "react-router-dom";
 import { connect } from "react-redux";
 import { useEffect } from "react";
 import { handleInitialData } from "./actions/shared";
+import HomePage from "./components/HomePage";
+import NotFound from "./components/NotFound";
 
 function App(props) {
   useEffect(() => {
@@ -25,6 +27,11 @@ function App(props) {
               )
             }
           />
+          <Route
+            path="/home"
+            exact
+            element={props.authedUser !== "none" ? <HomePage /> : <NotFound />}
+          />
         </Routes>
       </header>
     </div>
@@ -33,6 +40,7 @@ function App(props) {
 
 const mapStateToProps = (state) => ({
   users: state.users,
+  authedUser: state.authedUser,
 });
 
 export default connect(mapStateToProps)(App);
