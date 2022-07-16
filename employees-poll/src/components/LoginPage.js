@@ -8,26 +8,44 @@ function LoginPage(props) {
     <div>
       <h1>Select the user</h1>
       <select
-        value="none"
-        style={{ width: 250, height: 30, borderRadius: 50, padding: 5 }}
+        value={props.authedUser}
+        style={{
+          fontWeight: "bolder",
+          fontSize: 15,
+          width: 250,
+          height: 30,
+          borderRadius: 50,
+          padding: 5,
+        }}
         onChange={(e) => {
           props.dispatch(setAuthedUser(e.target.value));
         }}
       >
         <option value="none">Choose User!</option>
         {Object.keys(props.users).length > 0 &&
-          Object.keys(props.users).map((user) => {
-            return <option key={user}>{props.users[user].id}</option>;
-          })}
+          Object.keys(props.users).map((user) => (
+            <option key={user} value={props.users[user].id}>
+              {props.users[user].id}
+            </option>
+          ))}
       </select>
-      <div>
-        <button
-          style={{ width: 100, height: 30, borderRadius: 50, margin: 40 }}
+      <div style={{ margin: "30px" }}>
+        <Link
+          to={props.authedUser === "none" ? "/" : "/home"}
+          style={{
+            textDecoration: "none",
+            backgroundColor: "#00ff00",
+            padding: "2px 30px",
+            borderRadius: "30px",
+          }}
+          onClick={() => {
+            if (props.authedUser === "none") {
+              alert("Please Select a User First!");
+            }
+          }}
         >
-          <strong>
-            <Link to="/home">Login</Link>
-          </strong>
-        </button>
+          Login
+        </Link>
       </div>
     </div>
   );

@@ -30,7 +30,14 @@ function App(props) {
           <Route
             path="/home"
             exact
-            element={props.authedUser !== "none" ? <HomePage /> : <NotFound />}
+            element={
+              props.authedUser !== "none" &&
+              Object.keys(props.users).length > 0 ? (
+                <HomePage />
+              ) : (
+                <NotFound />
+              )
+            }
           />
         </Routes>
       </header>
