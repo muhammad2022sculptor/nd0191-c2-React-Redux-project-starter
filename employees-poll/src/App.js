@@ -16,7 +16,7 @@ function App(props) {
 
   return (
     <div className="App">
-      <body className="App-body">
+      <header className="App-body">
         <Routes>
           <Route path="*" element={<h1>Invalid Address! Go Back</h1>} />
           <Route
@@ -67,7 +67,7 @@ function App(props) {
             }
           />
         </Routes>
-      </body>
+      </header>
     </div>
   );
 }
@@ -75,6 +75,7 @@ function App(props) {
 const mapStateToProps = (state) => ({
   users: state.users,
   authedUser: state.authedUser,
+  questions: state.questions,
 });
 
 export default connect(mapStateToProps)(App);

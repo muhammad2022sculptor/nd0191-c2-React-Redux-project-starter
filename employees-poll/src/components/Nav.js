@@ -14,12 +14,13 @@ const Nav = (props) => {
         <li>
           <Link to="/new">Ask New Question?</Link>
         </li>
-        <li>{props.authedUser}</li>
+        <li>{props.users[props.authedUser].name}</li>
       </ul>
     </nav>
   );
 };
 const mapStateToProps = (state) => ({
+  users: state.users,
   authedUser: state.authedUser,
 });
 

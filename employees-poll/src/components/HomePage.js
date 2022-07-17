@@ -2,18 +2,18 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { setAuthedUser } from "../actions/authedUser";
 import Nav from "./Nav";
+import Questions from "./Questions";
 
 function HomePage(props) {
   return (
     <div>
       <Nav />
-      <div>HomePage</div>
       <div style={{ margin: "30px" }}>
         <Link
           to="/"
           style={{
             textDecoration: "none",
-            backgroundColor: "#00ff00",
+            backgroundColor: "#0055ff",
             padding: "2px 30px",
             borderRadius: "30px",
           }}
@@ -26,6 +26,9 @@ function HomePage(props) {
         >
           Logout
         </Link>
+      </div>
+      <div>
+        <Questions />
       </div>
     </div>
   );

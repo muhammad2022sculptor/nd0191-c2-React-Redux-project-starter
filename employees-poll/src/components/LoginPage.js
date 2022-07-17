@@ -6,7 +6,8 @@ import { setAuthedUser } from "../actions/authedUser";
 function LoginPage(props) {
   return (
     <div>
-      <h1>Select the user</h1>
+      <h1>Employees Poll</h1>
+      <h4>Select the user</h4>
       <select
         value={props.authedUser}
         style={{
