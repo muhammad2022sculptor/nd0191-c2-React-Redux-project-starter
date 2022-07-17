@@ -1,13 +1,14 @@
+import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { setAuthedUser } from "../actions/authedUser";
 import Nav from "./Nav";
 
-function HomePage(props) {
+function NewQuestion(props) {
   return (
     <div>
       <Nav />
-      <div>HomePage</div>
+      <div>NewQuestion</div>
       <div style={{ margin: "30px" }}>
         <Link
           to="/"
@@ -30,10 +31,9 @@ function HomePage(props) {
     </div>
   );
 }
-
 const mapStateToProps = (state) => ({
   users: state.users,
   authedUser: state.authedUser,
 });
 
-export default connect(mapStateToProps)(HomePage);
+export default connect(mapStateToProps)(NewQuestion);

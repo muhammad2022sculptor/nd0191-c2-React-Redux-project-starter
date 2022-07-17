@@ -6,6 +6,8 @@ import { useEffect } from "react";
 import { handleInitialData } from "./actions/shared";
 import HomePage from "./components/HomePage";
 import NotFound from "./components/NotFound";
+import LeaderBoard from "./components/LeaderBoard";
+import NewQuestion from "./components/NewQuestion";
 
 function App(props) {
   useEffect(() => {
@@ -14,8 +16,9 @@ function App(props) {
 
   return (
     <div className="App">
-      <header className="App-header">
+      <body className="App-body">
         <Routes>
+          <Route path="*" element={<h1>Invalid Address! Go Back</h1>} />
           <Route
             path="/"
             exact
@@ -39,8 +42,32 @@ function App(props) {
               )
             }
           />
+          <Route
+            path="/leaderboard"
+            exact
+            element={
+              props.authedUser !== "none" &&
+              Object.keys(props.users).length > 0 ? (
+                <LeaderBoard />
+              ) : (
+                <NotFound />
+              )
+            }
+          />
+          <Route
+            path="/new"
+            exact
+            element={
+              props.authedUser !== "none" &&
+              Object.keys(props.users).length > 0 ? (
+                <NewQuestion />
+              ) : (
+                <NotFound />
+              )
+            }
+          />
         </Routes>
-      </header>
+      </body>
     </div>
   );
 }
