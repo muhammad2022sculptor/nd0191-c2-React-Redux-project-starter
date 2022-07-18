@@ -8,6 +8,7 @@ import HomePage from "./components/HomePage";
 import NotFound from "./components/NotFound";
 import LeaderBoard from "./components/LeaderBoard";
 import NewQuestion from "./components/NewQuestion";
+import ShowQuestion from "./components/ShowQuestion";
 
 function App(props) {
   useEffect(() => {
@@ -18,7 +19,14 @@ function App(props) {
     <div>
       <header>
         <Routes>
-          <Route path="*" element={<h1>Invalid Address! Go Back</h1>} />
+          <Route
+            path="*"
+            element={
+              <div className="App">
+                <h1>Invalid Address! Go Back</h1>
+              </div>
+            }
+          />
           <Route
             path="/"
             exact
@@ -57,12 +65,24 @@ function App(props) {
             }
           />
           <Route
-            path="/new"
+            path="/add"
             exact
             element={
               props.authedUser !== "none" &&
               Object.keys(props.users).length > 0 ? (
                 <NewQuestion />
+              ) : (
+                <NotFound />
+              )
+            }
+          />
+          <Route
+            path="/question/:question_id"
+            exact
+            element={
+              props.authedUser !== "none" &&
+              Object.keys(props.users).length > 0 ? (
+                <ShowQuestion />
               ) : (
                 <NotFound />
               )

@@ -6,7 +6,15 @@ const Nav = (props) => {
   return (
     <nav className="nav">
       <ul>
-        <div style={{ flex: "75%", textAlign: "left" }}>
+        <div
+          style={{
+            flex: "75%",
+            display: "flex",
+            flexDirection: "row",
+            textAlign: "center",
+            justifyContent: "left",
+          }}
+        >
           <ul>
             <li>
               <Link to="/home">Home</Link>
@@ -15,11 +23,19 @@ const Nav = (props) => {
               <Link to="/leaderboard">Leaderboard</Link>
             </li>
             <li>
-              <Link to="/new">Ask New Question?</Link>
+              <Link to="/add">Ask?</Link>
             </li>
           </ul>
         </div>
-        <div style={{ flex: "25%" }}>
+        <div
+          style={{
+            flex: "25%",
+            display: "flex",
+            flexDirection: "row",
+            textAlign: "center",
+            justifyContent: "right",
+          }}
+        >
           <ul>
             <li style={{ color: "white" }}>
               {props.users[props.authedUser].name}
@@ -30,16 +46,13 @@ const Nav = (props) => {
                 style={{
                   textDecoration: "none",
                   backgroundColor: "#991122",
-                  padding: "18px 30px",
-                  borderRadius: "2px",
+                  padding: "20px 30px",
+                  borderRadius: "0px 10px 10px 0px",
                   onHover: {
                     color: "#000",
                   },
                 }}
                 onClick={() => {
-                  if (props.authedUser === "none") {
-                    alert("Please Select a User First!");
-                  }
                   props.dispatch(setAuthedUser("none"));
                 }}
               >

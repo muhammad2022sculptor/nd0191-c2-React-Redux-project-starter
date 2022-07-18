@@ -6,7 +6,7 @@ function LeaderBoard(props) {
   return (
     <div>
       <Nav />
-      <div>LeaderBoard</div>
+      <div className="App">LeaderBoard</div>
     </div>
   );
 }
