@@ -15,8 +15,8 @@ function App(props) {
   }, []);
 
   return (
-    <div className="App">
-      <header className="App-body">
+    <div>
+      <header>
         <Routes>
           <Route path="*" element={<h1>Invalid Address! Go Back</h1>} />
           <Route
@@ -26,7 +26,9 @@ function App(props) {
               Object.keys(props.users).length > 0 ? (
                 <LoginPage />
               ) : (
-                <div>Loading...</div>
+                <div className="App">
+                  <h1>Loading...</h1>
+                </div>
               )
             }
           />

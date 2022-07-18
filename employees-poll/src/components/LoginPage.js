@@ -5,18 +5,17 @@ import { setAuthedUser } from "../actions/authedUser";
 
 function LoginPage(props) {
   return (
-    <div>
+    <div className="App">
       <h1>Employees Poll</h1>
-      <h4>Select the user</h4>
+      <h2>Select the user</h2>
       <select
         value={props.authedUser}
         style={{
-          fontWeight: "bolder",
-          fontSize: 15,
-          width: 250,
-          height: 30,
-          borderRadius: 50,
-          padding: 5,
+          fontSize: "20px",
+          width: 350,
+          height: 50,
+          borderRadius: 10,
+          paddingLeft: 10,
         }}
         onChange={(e) => {
           props.dispatch(setAuthedUser(e.target.value));
@@ -36,8 +35,9 @@ function LoginPage(props) {
           style={{
             textDecoration: "none",
             backgroundColor: "#00ff00",
-            padding: "2px 30px",
-            borderRadius: "30px",
+            padding: "10px 30px",
+            borderRadius: "10px",
+            fontSize: 20,
           }}
           onClick={() => {
             if (props.authedUser === "none") {
@@ -45,7 +45,7 @@ function LoginPage(props) {
             }
           }}
         >
-          Login
+          <strong>Login</strong>
         </Link>
       </div>
     </div>

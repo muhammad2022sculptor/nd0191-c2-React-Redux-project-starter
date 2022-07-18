@@ -1,14 +1,19 @@
 .App {
+  display:flex;
+  /* justify-content:center; */
+  min-height: 100vh;
+  flex-direction:column;
+  align-items:center;
   text-align: center;
+  color: #fff;
+  background-color:#282c34;
 }
 
-.App-body {
-  background-color: #282c34;
+.questions{
+  display:flex;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  /* justify-content: center; */
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-direction:column;
+  text-align: center;
+  color: #fff;
+  background-color:#282c34;
 }

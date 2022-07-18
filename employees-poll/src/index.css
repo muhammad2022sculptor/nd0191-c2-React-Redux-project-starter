@@ -18,9 +18,9 @@ a {
   cursor: pointer;
 }
 .nav ul {
-  place-content: space-between;
+  /* place-content: flex-start end; */
   background:#181515;
-  padding: 10px 100px;
+  padding: 10px 20px;
   position:sticky;
   margin: 0;
   display:flex;
@@ -39,9 +39,17 @@ ul {
 
 li {
   list-style-type: none;
-  padding: 0px 159.4px;
+  /* padding: 0px 159.4px; */
   text-decoration: none;
-  
+  height:100%;
+  width: 100%;  
+}
+
+li a:hover {
+  background-color:aqua;
+  color:black;
+  padding: 20px 10px;
+  transition: .1s;
 }
 
 .avatar {
