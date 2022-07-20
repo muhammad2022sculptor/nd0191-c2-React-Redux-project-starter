@@ -21,7 +21,7 @@ function Questions(props) {
         .sort(function (a, b) {
           var dateA = props.questions[a].timestamp,
             dateB = props.questions[b].timestamp;
-          return dateA - dateB;
+          return dateB - dateA;
         })
     );
   }, []);
@@ -53,7 +53,7 @@ function Questions(props) {
               .sort(function (a, b) {
                 var dateA = props.questions[a].timestamp,
                   dateB = props.questions[b].timestamp;
-                return dateA - dateB;
+                return dateB - dateA;
               })
               .map((question) => {
                 let time = new Date(props.questions[question].timestamp);
