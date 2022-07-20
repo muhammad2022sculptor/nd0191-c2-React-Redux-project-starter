@@ -2,7 +2,7 @@ import "./App.css";
 import LoginPage from "./components/LoginPage";
 import { Routes, Route } from "react-router-dom";
 import { connect } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, Fragment } from "react";
 import { handleInitialData } from "./actions/shared";
 import HomePage from "./components/HomePage";
 import NotFound from "./components/NotFound";
@@ -16,8 +16,8 @@ function App(props) {
   }, []);
 
   return (
-    <div>
-      <header>
+    <Fragment>
+      <div>
         <Routes>
           <Route
             path="*"
@@ -89,8 +89,8 @@ function App(props) {
             }
           />
         </Routes>
-      </header>
-    </div>
+      </div>
+    </Fragment>
   );
 }
 
