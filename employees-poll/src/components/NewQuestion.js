@@ -12,7 +12,6 @@ function NewQuestion(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (optionOne.length > 5 && optionTwo.length > 5) {
-      alert(`${optionOne} ${optionTwo}`);
       props.dispatch(
         addQuestion({
           optionOneText: optionOne,

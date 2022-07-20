@@ -8,11 +8,11 @@ import HomePage from "./components/HomePage";
 import NotFound from "./components/NotFound";
 import LeaderBoard from "./components/LeaderBoard";
 import NewQuestion from "./components/NewQuestion";
-import ShowQuestion from "./components/ShowQuestion";
+import CheckQuestion from "./components/CheckQuestion";
 
-function App(props) {
+function App({ dispatch, authedUser, users }) {
   useEffect(() => {
-    props.dispatch(handleInitialData());
+    dispatch(handleInitialData());
   }, []);
 
   return (
@@ -31,7 +31,7 @@ function App(props) {
             path="/"
             exact
             element={
-              Object.keys(props.users).length > 0 ? (
+              Object.keys(users).length > 0 ? (
                 <LoginPage />
               ) : (
                 <div className="App">
@@ -44,8 +44,7 @@ function App(props) {
             path="/home"
             exact
             element={
-              props.authedUser !== "none" &&
-              Object.keys(props.users).length > 0 ? (
+              authedUser !== "none" && Object.keys(users).length > 0 ? (
                 <HomePage />
               ) : (
                 <NotFound />
@@ -56,8 +55,7 @@ function App(props) {
             path="/leaderboard"
             exact
             element={
-              props.authedUser !== "none" &&
-              Object.keys(props.users).length > 0 ? (
+              authedUser !== "none" && Object.keys(users).length > 0 ? (
                 <LeaderBoard />
               ) : (
                 <NotFound />
@@ -68,8 +66,7 @@ function App(props) {
             path="/add"
             exact
             element={
-              props.authedUser !== "none" &&
-              Object.keys(props.users).length > 0 ? (
+              authedUser !== "none" && Object.keys(users).length > 0 ? (
                 <NewQuestion />
               ) : (
                 <NotFound />
@@ -80,9 +77,8 @@ function App(props) {
             path="/question/:question_id"
             exact
             element={
-              props.authedUser !== "none" &&
-              Object.keys(props.users).length > 0 ? (
-                <ShowQuestion />
+              authedUser !== "none" && Object.keys(users).length > 0 ? (
+                <CheckQuestion />
               ) : (
                 <NotFound />
               )
@@ -97,7 +93,6 @@ function App(props) {
 const mapStateToProps = (state) => ({
   users: state.users,
   authedUser: state.authedUser,
-  questions: state.questions,
 });
 
 export default connect(mapStateToProps)(App);

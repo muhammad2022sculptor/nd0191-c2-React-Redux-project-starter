@@ -1,6 +1,7 @@
 import { getInitialData } from "../api/api";
 import { setAuthedUser } from "./authedUser";
 import { receiveQuestions } from "./questions";
+import { setShowQuestionStates } from "./showquestionstates";
 import { receiveUsers } from "./users";
 
 export function handleInitialData() {
@@ -9,6 +10,7 @@ export function handleInitialData() {
       dispatch(setAuthedUser("none"));
       dispatch(receiveUsers(users));
       dispatch(receiveQuestions(questions));
+      dispatch(setShowQuestionStates("none", "none"));
     });
   };
 }
