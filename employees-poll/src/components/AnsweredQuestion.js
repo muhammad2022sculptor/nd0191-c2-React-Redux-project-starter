@@ -13,8 +13,8 @@ export const AnsweredQuestion = (props) => {
     setSelectedOption(props.users[props.authedUser].answers[question_id]);
     setSelectedOptionTotalVotes(
       selectedOption === "optionTwo"
-        ? [props.questions[question_id].optionOne.votes].length
-        : [props.questions[question_id].optionTwo.votes].length
+        ? props.questions[question_id].optionTwo.votes.length
+        : props.questions[question_id].optionOne.votes.length
     );
   }, []);
 
@@ -35,6 +35,7 @@ export const AnsweredQuestion = (props) => {
               src={props.users[props.questions[question_id].author].avatarURL}
               alt="yeah"
             />
+            <p>Asked By</p>
             <p
               style={{
                 margin: "0px 20px 0px 5px",

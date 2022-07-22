@@ -48,21 +48,27 @@ function Questions(props) {
     <div>
       <div>
         <h1>New Questions</h1>
-        {unAnswered.map((question) => {
-          let time = new Date(props.questions[question].timestamp);
-          return (
-            <SingleQuestion
-              answered={false}
-              key={time}
-              time={time}
-              question={question}
-            />
-          );
-        })}
+        {unAnswered.length > 0 ? (
+          unAnswered.map((question) => {
+            let time = new Date(props.questions[question].timestamp);
+            return (
+              <SingleQuestion
+                answered={false}
+                key={time}
+                time={time}
+                question={question}
+              />
+            );
+          })
+        ) : (
+          <p style={{ padding: "20px", background: "black", fontSize: "30px" }}>
+            No New Questions Yet!
+          </p>
+        )}
       </div>
       <div>
         <h1>Answered Questions</h1>
-        {Answered &&
+        {Answered.length > 0 ? (
           props.dispatch(setShowQuestionStates(Answered, unAnswered)) &&
           Answered.map((question) => {
             let time = new Date(props.questions[question].timestamp);
@@ -74,7 +80,12 @@ function Questions(props) {
                 question={question}
               />
             );
-          })}
+          })
+        ) : (
+          <p style={{ padding: "20px", background: "black", fontSize: "30px" }}>
+            No Answered Questions Yet!
+          </p>
+        )}
       </div>
     </div>
   );
