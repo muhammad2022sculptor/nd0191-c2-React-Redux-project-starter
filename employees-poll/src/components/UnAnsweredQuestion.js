@@ -104,6 +104,7 @@ export const UnAnsweredQuestion = (props) => {
               }}
             >
               <button
+                id="submit-answer"
                 onClick={() => {
                   if (selectedOption === "none")
                     alert("Please select an option!");
@@ -111,7 +112,12 @@ export const UnAnsweredQuestion = (props) => {
                     props.dispatch(
                       addQuestionAnswer(question_id, selectedOption)
                     );
-                    navigate("/home");
+                    document.getElementById("submit-answer").disabled = true;
+                    document.getElementById("submit-answer").innerText =
+                      "SUBMITTING....";
+                    setTimeout(() => {
+                      navigate("/home");
+                    }, 2000);
                   }
                 }}
               >

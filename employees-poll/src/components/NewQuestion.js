@@ -19,7 +19,11 @@ function NewQuestion(props) {
           author: props.authedUser,
         })
       );
-      navigate("/home");
+      document.getElementById("submit-answer").disabled = true;
+      document.getElementById("submit-answer").innerText = "ASKING....";
+      setTimeout(() => {
+        navigate("/home");
+      }, 2000);
     } else alert("Please enter more information in the textfields");
   };
 
@@ -113,6 +117,7 @@ function NewQuestion(props) {
         </ul>
         <div style={{ margin: "40px 0px" }}>
           <button
+            id="submit-answer"
             style={{
               background: "#66BFBF",
               borderRadius: "10px",

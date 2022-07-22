@@ -14,7 +14,6 @@ function SingleQuestion(props) {
     >
       <div style={{ display: "flex" }}>
         <div style={{ flex: "75%", textAlign: "left", margin: "10px" }}>
-          <div>{props.question}</div>
           <div>{props.users[props.questions[props.question].author].name}</div>
           <div>{props.time.toGMTString()}</div>
         </div>

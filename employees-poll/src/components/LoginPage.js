@@ -9,7 +9,8 @@ function LoginPage(props) {
       <h1>Employees Poll</h1>
       <h2>Select the user</h2>
       <select
-        value={props.authedUser}
+        data-testid="user-name-input"
+        value={props.authedUser || ""}
         style={{
           fontSize: "20px",
           width: 350,
@@ -21,7 +22,9 @@ function LoginPage(props) {
           props.dispatch(setAuthedUser(e.target.value));
         }}
       >
-        <option value="none">Choose User!</option>
+        <option data-testid="select-option" value="none">
+          Choose User!
+        </option>
         {Object.keys(props.users).length > 0 &&
           Object.keys(props.users).map((user) => (
             <option key={user} value={props.users[user].id}>
@@ -31,6 +34,7 @@ function LoginPage(props) {
       </select>
       <div style={{ margin: "30px" }}>
         <Link
+          data-testid="login-button"
           to={props.authedUser === "none" ? "/" : "/home"}
           style={{
             textDecoration: "none",
