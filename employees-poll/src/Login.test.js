@@ -9,7 +9,7 @@ import thunk from "redux-thunk";
 const store = createStore(reducer, applyMiddleware(thunk));
 import LoginPage from "./components/LoginPage";
 
-test("renders Login Page (Matching with the snapshot", () => {
+test("renders Login Page (Matching with the snapshot)", () => {
   const component = render(
     <Provider store={store} dispatch={store.dispatch}>
       <Router>

@@ -19,8 +19,15 @@ export default function questions(state = {}, action) {
     case ADD_ANSWER:
       return {
         ...state,
-        ...action.users,
-        ...action.questions,
+        [action.qid]: {
+          ...state[action.qid],
+          [action.answer]: Object.assign({}, state[action.qid][action.answer], {
+            ["votes"]: [
+              ...state[action.qid][action.answer]["votes"],
+              action.authedUser,
+            ],
+          }),
+        },
       };
     default:
       return state;

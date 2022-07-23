@@ -3,19 +3,20 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
 function SingleQuestion(props) {
+  const { questions, question, answered, time, users } = props;
   return (
     <div
       style={{
         background: "#0F4C75",
         borderRadius: "10px",
         margin: "20px 20px",
-        border: props.answered ? "solid #5FD068 2px" : "solid #F87474 2px",
+        border: answered ? "solid #5FD068 2px" : "solid #F87474 2px",
       }}
     >
       <div style={{ display: "flex" }}>
         <div style={{ flex: "75%", textAlign: "left", margin: "10px" }}>
-          <div>{props.users[props.questions[props.question].author].name}</div>
-          <div>{props.time.toGMTString()}</div>
+          <div>{users[questions[question].author].name}</div>
+          <div>{time.toGMTString()}</div>
         </div>
         <div
           style={{
@@ -33,7 +34,7 @@ function SingleQuestion(props) {
               height: "100%",
               width: "100%",
             }}
-            to={`/question/${props.question}`}
+            to={`/question/${question}`}
           >
             <strong>Show Question</strong>
           </Link>

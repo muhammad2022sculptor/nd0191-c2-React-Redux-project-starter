@@ -9,14 +9,16 @@ function NewQuestion(props) {
   const [optionOne, setOptionOne] = React.useState("");
   const [optionTwo, setOptionTwo] = React.useState("");
 
+  const { authedUser, dispatch } = props;
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (optionOne.length > 5 && optionTwo.length > 5) {
-      props.dispatch(
+      dispatch(
         addQuestion({
           optionOneText: optionOne,
           optionTwoText: optionTwo,
-          author: props.authedUser,
+          author: authedUser,
         })
       );
       document.getElementById("submit-answer").disabled = true;
@@ -134,8 +136,7 @@ function NewQuestion(props) {
     </div>
   );
 }
-const mapStateToProps = ({ users, authedUser }) => ({
-  users,
+const mapStateToProps = ({ authedUser }) => ({
   authedUser,
 });
 

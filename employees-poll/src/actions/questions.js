@@ -1,6 +1,5 @@
-import { getInitialData } from "../api/api";
 import { _saveQuestion, _saveQuestionAnswer } from "../api/_DATA";
-import { receiveUsers, updateUserQuestions } from "./users";
+import { updateUserAnswers, updateUserQuestions } from "./users";
 
 export const RECEIVE_QUESTIONS = "RECEIVE_QUESTIONS";
 export const SAVE_QUESTION = "SAVE_QUESTIONS";
@@ -20,6 +19,15 @@ function addQuestionAction(question) {
   };
 }
 
+function addAnswer(authedUser, qid, answer) {
+  return {
+    type: ADD_ANSWER,
+    authedUser,
+    qid,
+    answer,
+  };
+}
+
 export function addQuestion(question) {
   return (dispatch, getState) => {
     return _saveQuestion(question).then((question) => {
@@ -34,10 +42,8 @@ export function addQuestionAnswer(qid, answer) {
   return (dispatch, getState) => {
     const { authedUser } = getState();
     return _saveQuestionAnswer({ authedUser, qid, answer }).then(() => {
-      getInitialData().then(({ users, questions }) => {
-        dispatch(receiveUsers(users));
-        dispatch(receiveQuestions(questions));
-      });
+      dispatch(updateUserAnswers(authedUser, qid, answer));
+      dispatch(addAnswer(authedUser, qid, answer));
     });
   };
 }

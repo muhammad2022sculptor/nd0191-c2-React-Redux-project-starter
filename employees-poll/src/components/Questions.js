@@ -41,6 +41,9 @@ function Questions(props) {
             dateB = props.questions[b].timestamp;
           return dateB - dateA;
         })[0]
+        .sort(
+          (b, a) => props.questions[a].timestamp - props.questions[b].timestamp
+        )
     );
   }, [props.questions]);
 
