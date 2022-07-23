@@ -25,6 +25,7 @@ function addAnswer(authedUser, qid, answer) {
     authedUser,
     qid,
     answer,
+    votes: "votes",
   };
 }
 

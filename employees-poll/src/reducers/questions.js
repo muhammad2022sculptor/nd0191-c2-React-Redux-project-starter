@@ -22,8 +22,8 @@ export default function questions(state = {}, action) {
         [action.qid]: {
           ...state[action.qid],
           [action.answer]: Object.assign({}, state[action.qid][action.answer], {
-            ["votes"]: [
-              ...state[action.qid][action.answer]["votes"],
+            [action.votes]: [
+              ...state[action.qid][action.answer][action.votes],
               action.authedUser,
             ],
           }),
