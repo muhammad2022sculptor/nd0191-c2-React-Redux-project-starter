@@ -1,70 +1,88 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Hi, I'm Muhammad Shahiryar! 👋
+I am an enthusiast programmer or rather a problem solver. I really love learning new things.
+It actually doesn't matter what but it must be useful for development of good knowledge.
+Yeah that's a bit of intro about me.
 
-## Available Scripts
 
-In the project directory, you can run:
+## 🛠 Skills
+Javascript, HTML, CSS, Python, Java, JavaFX, C#, C++,
+React, Material UI, Flutter
 
-### `npm start`
+# Employee Polls Project - a react and redux base application
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+This application is essentially based off of following different components 
+ - Login Page
+    - which is having a dropdown to select a user.
+ - Nav Bar
+    - User can navigate between different components i.e. Home, LeaderBoard, Ask?
+ - UnAnswered Questions(sorted Latest on the top)
+    - Which basically shows the questions which have not been answered by the logged In user.
+ - Answered Questions(sorted Latest on the top)
+    - Similar to UnAnswered Questions this component renders the questions answered by Logged In user.
+ -LeaderBoard
+    - Shows the detail overview of all the users.
+ - Ask?
+    - will let the user ask a new question.
+ - Show question will show the detail of the questions UnAnswered and Answered respectively.
+ 
+## Run Locally
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Clone the project
 
-### `npm test`
+```bash
+  git clone https://github.com/muhammad2022sculptor/nd0191-c2-React-Redux-project-starter.git
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Go to the project directory
 
-### `npm run build`
+```bash
+cd employees-poll
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Install dependencies
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+  npm install
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Start the server
 
-### `npm run eject`
+```bash
+  npm run start
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Running Tests
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+To run tests, run the following command
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+```bash
+  npm test -- --verbose
+```
 
-## Learn More
+```bash
+  > Press a to run all tests
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Lessons Learned
 
-### Code Splitting
+While building this project I learned:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- Why is react better and faster way of developing web applications.
+- How to use State Management in the different components.
+- How can I utilize Redux Management to further improve my development.
+- About three most important concepts regarding redux.
+    - Actions
+    - Reducers
+    - Middleware
+- That redux makes it easier to pass the data to any component of the application.
 
-### Analyzing the Bundle Size
+Challanges I faced:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+The biggest Challange was the logic to separate the answered and unanswered questions.
+## Authors
 
-### Making a Progressive Web App
+- [@muhammad2022sculptor](https://github.com/muhammad2022sculptor)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
