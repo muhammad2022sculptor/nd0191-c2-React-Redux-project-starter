@@ -117,7 +117,7 @@ export const UnAnsweredQuestion = (props) => {
                       "SUBMITTING....";
                     setTimeout(() => {
                       navigate("/home");
-                    }, 2000);
+                    }, 3000);
                   }
                 }}
               >

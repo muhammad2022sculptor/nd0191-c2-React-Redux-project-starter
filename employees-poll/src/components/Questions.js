@@ -1,6 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
-import { setShowQuestionStates } from "../actions/showquestionstates";
+import {
+  returnAnsweredQuestions,
+  returnUnAnsweredQuestions,
+} from "../api/helper";
 import SingleQuestion from "./SingleQuestion";
 
 function Questions(props) {
@@ -8,44 +11,12 @@ function Questions(props) {
   const [Answered, setAnswered] = React.useState([]);
 
   React.useEffect(() => {
-    setUnAnswered(
-      Object.keys(props.questions)
-        .filter((question) => {
-          let optionOne = props.questions[question].optionOne["votes"];
-          let optionTwo = props.questions[question].optionTwo["votes"];
-          return (
-            !(
-              optionOne.includes(props.authedUser) ||
-              optionTwo.includes(props.authedUser)
-            ) && props.questions[question].id
-          );
-        })
-        .sort(function (a, b) {
-          var dateA = props.questions[a].timestamp,
-            dateB = props.questions[b].timestamp;
-          return dateB - dateA;
-        })
-    );
+    setUnAnswered(returnUnAnsweredQuestions(props.questions, props.authedUser));
 
     setAnswered(
-      Object.keys(props.users)
-        .map((user) => {
-          if (
-            user === props.authedUser &&
-            Object.keys(props.users[user].answers).length > 0
-          )
-            return Object.keys(props.users[user].answers);
-        })
-        .sort(function (a, b) {
-          var dateA = props.questions[a].timestamp,
-            dateB = props.questions[b].timestamp;
-          return dateB - dateA;
-        })[0]
-        .sort(
-          (b, a) => props.questions[a].timestamp - props.questions[b].timestamp
-        )
+      returnAnsweredQuestions(props.users, props.questions, props.authedUser)
     );
-  }, [props.questions]);
+  }, [props.questions, props.users, props.authedUser]);
 
   return (
     <div>
@@ -72,7 +43,6 @@ function Questions(props) {
       <div>
         <h1>Answered Questions</h1>
         {Answered.length > 0 ? (
-          props.dispatch(setShowQuestionStates(Answered, unAnswered)) &&
           Answered.map((question) => {
             let time = new Date(props.questions[question].timestamp);
             return (
