@@ -13,7 +13,7 @@ import CheckQuestion from "./components/CheckQuestion";
 function App({ dispatch, authedUser, users }) {
   useEffect(() => {
     dispatch(handleInitialData());
-  }, []);
+  }, [dispatch]);
 
   return (
     <Fragment>
@@ -47,7 +47,7 @@ function App({ dispatch, authedUser, users }) {
               authedUser !== "none" && Object.keys(users).length > 0 ? (
                 <HomePage />
               ) : (
-                <NotFound />
+                <LoginPage />
               )
             }
           />
@@ -58,7 +58,7 @@ function App({ dispatch, authedUser, users }) {
               authedUser !== "none" && Object.keys(users).length > 0 ? (
                 <LeaderBoard />
               ) : (
-                <NotFound />
+                <LoginPage />
               )
             }
           />
@@ -69,7 +69,7 @@ function App({ dispatch, authedUser, users }) {
               authedUser !== "none" && Object.keys(users).length > 0 ? (
                 <NewQuestion />
               ) : (
-                <NotFound />
+                <LoginPage />
               )
             }
           />
