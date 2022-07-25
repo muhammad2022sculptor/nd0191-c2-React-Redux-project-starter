@@ -5,7 +5,6 @@ import { connect } from "react-redux";
 import { useEffect, Fragment } from "react";
 import { handleInitialData } from "./actions/shared";
 import HomePage from "./components/HomePage";
-import NotFound from "./components/NotFound";
 import LeaderBoard from "./components/LeaderBoard";
 import NewQuestion from "./components/NewQuestion";
 import CheckQuestion from "./components/CheckQuestion";
@@ -80,7 +79,7 @@ function App({ dispatch, authedUser, users }) {
               authedUser !== "none" && Object.keys(users).length > 0 ? (
                 <CheckQuestion />
               ) : (
-                <NotFound />
+                <LoginPage />
               )
             }
           />
