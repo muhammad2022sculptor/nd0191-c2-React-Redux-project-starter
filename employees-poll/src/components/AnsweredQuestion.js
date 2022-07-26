@@ -16,7 +16,13 @@ export const AnsweredQuestion = (props) => {
         ? props.questions[question_id].optionTwo.votes.length
         : props.questions[question_id].optionOne.votes.length
     );
-  }, []);
+  }, [
+    props.authedUser,
+    props.users,
+    question_id,
+    selectedOption,
+    props.questions,
+  ]);
 
   return (
     <>

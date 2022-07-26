@@ -16,15 +16,17 @@ export function returnUnAnsweredQuestions(questions, authedUser) {
 }
 
 export function returnAnsweredQuestions(users, questions, authedUser) {
-  return Object.keys(users)
-    .map((user) => {
-      if (user === authedUser && Object.keys(users[user].answers).length > 0)
-        return Object.keys(users[user].answers);
-    })
-    .sort(function (a, b) {
+  let arr = Object.keys(users).map((user) => {
+    if (user === authedUser && Object.keys(users[user].answers).length > 0)
+      return Object.keys(users[user].answers);
+    else return [];
+  });
+  if (arr[0].length > 0) {
+    arr[0] = arr[0].sort(function (a, b) {
       var dateA = questions[a].timestamp,
         dateB = questions[b].timestamp;
       return dateB - dateA;
-    })[0]
-    .sort((b, a) => questions[a].timestamp - questions[b].timestamp);
+    });
+    return arr[0];
+  }
 }
