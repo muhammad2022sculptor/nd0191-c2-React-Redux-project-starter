@@ -1,7 +1,7 @@
 [build]
   base = "employees-poll"
   command = "npm run build"
-  publish = "employees-poll/build"
+  publish = "build"
 
 [build.environment]
   NODE_VERSION = "16"
