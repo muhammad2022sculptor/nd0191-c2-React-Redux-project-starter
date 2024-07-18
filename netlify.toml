@@ -1,5 +1,5 @@
 [build]
-  base = "employess-poll"
+  base = "employees-poll"
   command = "npm run build"
   publish = "employees-poll/build"
 
